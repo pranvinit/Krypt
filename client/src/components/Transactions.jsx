@@ -21,6 +21,8 @@ const TransactionCard = ({
 }) => {
   const gifUrl = useFetch({ keyword });
 
+  console.log(gifUrl);
+
   return (
     <div
       className="bg-[#181918] m-4 flex flex-1
@@ -73,7 +75,7 @@ const TransactionCard = ({
 };
 
 export default function Transactions() {
-  const { connectedAccount } = useContext(TransactionContext);
+  const { connectedAccount, transactions } = useContext(TransactionContext);
 
   return (
     <div className="w-full flex justify-center items-center 2xl:px-20 gradient-bg-transactions">
@@ -89,7 +91,7 @@ export default function Transactions() {
         )}
 
         <div className="flex flex-wrap justify-center items-center mt-10">
-          {dummyData.reverse().map((transaction, i) => (
+          {transactions.reverse().map((transaction, i) => (
             <TransactionCard key={i} {...transaction} />
           ))}
         </div>
