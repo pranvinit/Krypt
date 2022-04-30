@@ -10,6 +10,9 @@ import { Loader } from "./";
 // context imports
 import { TransactionContext } from "../context/TransactionContext";
 
+// utils imports
+import { shortenAddress } from "../utils/shortenAddress";
+
 const companyCommonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
@@ -96,7 +99,9 @@ export default function Welcome() {
                 <BsInfoCircle fontSize={17} color="#fff" />
               </div>
               <div>
-                <p className="text-white font-light text-sm">Address</p>
+                <p className="text-white font-light text-sm">
+                  {shortenAddress(connectedAccount)}
+                </p>
                 <p className="text-white font-semibold text-lg mt-1 ">
                   Ethereum
                 </p>
@@ -108,24 +113,28 @@ export default function Welcome() {
               placeholder="Address To"
               name="addressTo"
               type="text"
+              value={formData.addressTo}
               handleChange={handleChange}
             />
             <Input
               placeholder="Amount (ETH)"
               name="amount"
               type="number"
+              value={formData.amount}
               handleChange={handleChange}
             />
             <Input
               placeholder="Keyword (Gif)"
               name="keyword"
               type="text"
+              value={formData.keyword}
               handleChange={handleChange}
             />
             <Input
               placeholder="Enter Message"
               name="message"
               type="text"
+              value={formData.message}
               handleChange={handleChange}
             />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
