@@ -106,7 +106,7 @@ export default function Welcome() {
               onChange={() => {}}
             />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
-            {true ? (
+            {!true ? (
               <Loader />
             ) : (
               <button
